@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeTrack</title>
+
+    <!-- External CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- Local CSS (Flask way) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="nav">
+      <h1><a href="/">SAFETRACK</a></h1>
+      <div id="nav-right">
+        <a href="/index2">HOME</a>
+        <a href="/register">REGISTER</a>
+        <a href="/explore">EXPLORE</a>
+
+        <button id="signInBtn">SIGN OUT</button>
+        <button id="logOutBtn" style="display: none">LOG OUT</button>
+      </div>
+    </div>
+
+    <div id="cursor"></div>
+
+    <!-- Main Content -->
+    <div id="main">
+      <div id="page1" data-scroll data-scroll-speed="-2">
+        <video autoplay loop muted src="{{ url_for('static', filename='1.mp4') }}"></video>
+
+        <div id="bottom-page1-1">
+          <h1>
+            FUTURE <br />OF SAFETY<br />
+            <em><h2>LOCATION TRACKING IN REAL-TIME</h2></em>
+          </h1>
+
+          <div id="page1-button">
+            <button onclick="window.location.href='/register';">START</button>
+          </div>
+
+          <div id="moving-div">
+            <div class="move">
+              <h1>Wifi</h1>
+              <h1>Cameras</h1>
+              <h1>Bluetooth</h1>
+              <h1>Wearables</h1>
+              <h1>Sensors</h1>
+            </div>
+            <div class="move">
+              <h1>Wifi</h1>
+              <h1>Cameras</h1>
+              <h1>Bluetooth</h1>
+              <h1>Wearables</h1>
+              <h1>Sensors</h1>
+            </div>
+            <div class="move">
+              <h1>Wifi</h1>
+              <h1>Cameras</h1>
+              <h1>Bluetooth</h1>
+              <h1>Wearables</h1>
+              <h1>Sensors</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="page2">
+        <video
+          src="https://thisismagma.com/wp-content/themes/magma/assets/home/glass/1.webm?2"
+          autoplay
+          loop
+          muted
+        ></video>
+        <h1>AI-Driven Emergency</h1>
+        <h2>Location Tracking</h2>
+        <p>
+          SAFETRACK utilizes AI-technology to help your first responders to locate missing employees in
+          emergencies when real-time location technology failed. With our predictive locating solution,
+          businesses stay connected to employees during disasters, even if locating devices fail.
+        </p>
+      </div>
+
+      <div id="page3">
+        <canvas></canvas>
+      </div>
+
+      <div id="page9">
+        <div class="left9">
+          <h1>
+            What is <br />
+            SafeTrack?
+          </h1>
+        </div>
+        <div class="right9">
+          <div class="right9-center"></div>
+        </div>
+      </div>
+
+      <div id="page10">
+        <img
+          src="https://thisismagma.com/wp-content/uploads/2023/04/magma.wp2.cubdev.com-home-1-1.5x.jpg"
+          alt=""
+        />
+        <div id="black-cover"></div>
+        <div class="right10">
+          <div class="right10-inner">
+            <h1>Predictive Location Recovery</h1>
+            <p>
+              SafeTrack uses AI-driven prediction models to locate employees even after real-time tracking
+              fails. Our smart solution ensures organizations stay connected to at-risk employees during
+              emergencies — when every second matters.
+            </p>
+          </div>
+
+          <div class="right10-inner">
+            <h1>Compliance & Insurance Savings</h1>
+            <p>
+              SafeTrack strengthens emergency response systems, helping businesses meet OSHA and HSE
+              regulations and potentially reducing workers’ compensation insurance costs by up to 30%.
+              Enhanced safety, fewer penalties, better protection.
+            </p>
+          </div>
+
+          <div class="right10-inner">
+            <h1>Scalable, Fast, and Accurate</h1>
+            <p>
+              SafeTrack quickly adapts to any building layout using intelligent zone mapping and delivers up
+              to 87% location prediction accuracy after signal loss — empowering first responders when
+              visibility is lost.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="page11">
+        <h1>Key Features of SafeTrack</h1>
+
+        <div class="page11-inner">
+          <div class="left11">
+            <img
+              src="https://thisismagma.com/wp-content/uploads/2023/04/magma.wp2.cubdev.com-home-2-1.5x.jpg"
+              alt=""
+            />
+          </div>
+          <div class="right11">
+            <h1>Fast Application</h1>
+            <h4>
+              Quick setup process and model training after data gathering. No further manual action needed.
+            </h4>
+          </div>
+        </div>
+
+        <div class="page11-inner">
+          <div class="left11">
+            <img
+              src="https://thisismagma.com/wp-content/uploads/2023/04/magma.wp2.cubdev.com-home-4-1.5x.jpg"
+              alt=""
+            />
+          </div>
+          <div class="right11">
+            <h1>Adjustable to any Building</h1>
+            <h4>
+              Intelligent preprocessing ensures adaptability to any structure and layout with higher location
+              accuracy.
+            </h4>
+          </div>
+        </div>
+
+        <div class="page11-inner">
+          <div class="left11">
+            <img
+              src="https://thisismagma.com/wp-content/uploads/2023/04/magma.wp2.cubdev.com-home-3-1.5x.jpg"
+              alt=""
+            />
+          </div>
+          <div class="right11">
+            <h1>High Accuracy</h1>
+            <h4>Achieves 87% prediction accuracy after device signal loss, helping save lives faster.</h4>
+          </div>
+        </div>
+      </div>
+
+      <div id="page13">
+        <h1>Become an early adopter</h1>
+        <button>BOOK A DEMO</button>
+      </div>
+
+      <div id="page14">
+        <div class="page14-inner">
+          <h1>Twitter</h1>
+          <i class="ri-arrow-right-up-line"></i>
+          <div class="center14"></div>
+        </div>
+        <div class="page14-inner">
+          <h1>LinkedIn</h1>
+          <i class="ri-arrow-right-up-line"></i>
+          <div class="center14"></div>
+        </div>
+        <div class="page14-inner">
+          <h1>Instagram</h1>
+          <i class="ri-arrow-right-up-line"></i>
+          <div class="center14"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"></script>
+
+    <!-- Local JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

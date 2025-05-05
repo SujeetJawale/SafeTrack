@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeTrack Register</title>
+
+    <!-- Correct Flask way to load CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}" />
+
+    <!-- External JS libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+
+    <!-- Correct Flask way to load your custom JS -->
+    <script src="{{ url_for('static', filename='scriptr.js') }}" defer></script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="nav">
+      <h1><a href="/">SAFETRACK</a></h1>
+      <div id="nav-right">
+        <a href="/index2">HOME</a>
+        <a href="/register">REGISTER</a>
+        <a href="/explore">EXPLORE</a>
+        <button id="signInBtn">SIGN OUT</button>
+        <button id="logOutBtn" style="display: none">LOG OUT</button>
+      </div>
+    </div>
+
+    <div id="cursor"></div>
+
+    <!-- Main Form -->
+    <div id="main">
+      <form id="zoneForm">
+        <h2>BUILDING INFO</h2>
+
+        <label for="choice">How do you want to register?</label>
+        <select id="choice" required>
+          <option value="">Select an option</option>
+          <option value="upload">Upload Building Plan</option>
+          <option value="address">Google Maps Address</option>
+        </select>
+        <br /><br />
+
+        <!-- Upload Section -->
+        <div id="upload-section" style="display: none">
+          <label for="file">Upload Outline:</label>
+          <input type="file" id="imageUpload" accept="image/*" /><br /><br />
+        </div>
+
+        <!-- Address Section -->
+        <div id="address-section" style="display: none">
+          <label for="text">Address:</label>
+          <input type="text" id="addressInput" placeholder="Enter Location" /><br /><br />
+        </div>
+
+        <button type="submit">SUBMIT</button>
+      </form>
+
+      <!-- Output Section -->
+      <div id="output-container">
+        <div class="loader" id="loader" style="display: none"></div>
+        <img id="building-image" src="" alt="Building Image" />
+        <img id="grid-image" src="" alt="Grid Overlay Image" />
+        <div id="grid-overlay"></div>
+        <div class="zone-text" id="zonesText"></div>
+      </div>
+    </div>
+  </body>
+</html>

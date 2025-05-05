@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SafeTrack | Explore</title>
+
+    <!-- Correct link to CSS using Flask url_for -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='explore.css') }}" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="nav">
+      <h1><a href="/">SAFETRACK</a></h1>
+      <div id="nav-right">
+        <a href="/index2">HOME</a>
+        <a href="/register">REGISTER</a>
+        <a href="/explore">EXPLORE</a>
+
+        <button id="signInBtn">SIGN OUT</button>
+        <button id="logOutBtn" style="display: none">LOG OUT</button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="page2">
+      <div class="form-container">
+        <h1>SUBMIT REQUEST</h1>
+
+        <!-- Form -->
+        <form action="/predict" method="post">
+          <div class="form-group">
+            <label for="mac_id">MAC ID:</label>
+            <input type="text" id="mac_id" name="mac_id" required placeholder="e.g., 0c:51:01:b2:dc:ea" />
+          </div>
+
+          <div class="form-group">
+            <label for="time">Minutes Ahead:</label>
+            <input type="number" id="time" name="time" required min="1" max="60" value="15" />
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit">SUBMIT</button>
+            <button type="button" id="clearBtn">CLEAR</button>
+          </div>
+        </form>
+
+        <!-- Result Section -->
+      </div>
+
+      <div class="result-container">
+        {% if plot_url %}
+        <h2>Predicted Location Heatmap</h2>
+        <img
+          src="data:image/png;base64,{{ plot_url }}"
+          alt="Prediction Plot"
+          style="
+            width: 80%;
+            height: auto;
+            margin-top: 40px;
+            border: 2px solid white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        />
+        {% else %}
+        <p style="color: white; text-transform: capitalize">Submit the form above to see the heatmap!</p>
+        {% endif %} {% if first_zone_name %}
+        <div class="zone-name" style="margin-top: 20px; text-align: center">
+          <h3 style="margin-bottom: 10px">Top Predicted Area</h3>
+          <p style="font-size: 1.5rem; color: #ffd700">{{ first_zone_name }}</p>
+
+          <button
+            id="alertButton"
+            style="
+              width: 40%;
+              margin-top: 15px;
+              padding: 10px 10px;
+              font-size: 1.2rem;
+              background-color: red;
+              color: white;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              text-transform: uppercase;
+            "
+          >
+            Send Alert to Security
+          </button>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+      // Clear Button functionality
+      document.getElementById("clearBtn").addEventListener("click", () => {
+        document.getElementById("mac_id").value = "";
+        document.getElementById("time").value = 15;
+
+        const resultContainer = document.querySelector(".result-container");
+        if (resultContainer) {
+          resultContainer.style.display = "none";
+        }
+      });
+
+      // Send Alert Button functionality
+      document.getElementById("alertButton")?.addEventListener("click", () => {
+        alert("🚨 Security Alert: Person located at " + "{{ first_zone_name }}" + " 🚨");
+      });
+    </script>
+  </body>
+</html>
