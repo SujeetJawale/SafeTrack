@@ -5,7 +5,7 @@
 # SafeTrace: Predictive Location Tracking for Emergency Response
 🔗 [Video Link](https://youtu.be/tZ2p5t_8boQ)
 
-**SafeTrace** is a life-saving predictive analytics system developed to locate missing personnel in high-risk industrial environments, such as oil rigs, during emergencies. When real-time tracking fails—due to explosions, network outages, or damaged devices—SafeTrace leverages historical location data and trained deep learning models to estimate the most probable location of missing individuals.
+**SafeTrace** is a life-saving predictive analytics system developed to locate missing personnel in high-risk industrial environments, such as oil rigs, during emergencies. When real-time tracking fails-due to explosions, network outages, or damaged devices-SafeTrace leverages historical location data and trained deep learning models to estimate the most probable location of missing individuals.
 
 ## 🔑 Key Features
 
